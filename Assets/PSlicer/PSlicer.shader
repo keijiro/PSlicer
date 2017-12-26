@@ -73,22 +73,48 @@
 
         void surf(Input IN, inout SurfaceOutputStandard o)
         {
+            // Effect coordinates
             float3 coord = mul(_EffectorMatrix, float4(IN.worldPos, 1));
 
-            float row = floor(coord.z * _Density);
-            uint seed = (uint)(row * 199 + 10000);
+            // Density
+            float density1 = _Density;
+            float density2 = _Density / 2; // half density
+            float density3 = _Density / 3; // quarter density
+
+            // Current slice number
+            float slice1 = floor(coord.z * density1);
+            float slice2 = floor(coord.z * density2); // half density
+            float slice3 = floor(coord.z * density3); // quarter density
+
+            // Random number used to select density
+            float rnd2 = Random(slice2 + 10000) < 0.5;
+            float rnd3 = Random(slice3 + 10000) < 0.5;
+
+            // Actual density and current slice number
+            float density = lerp(lerp(density1, density2, rnd2), density3, rnd3);
+            float slice = lerp(lerp(slice1, slice2, rnd2), slice3, rnd3);
+
+            // Random seed for the current slice
+            uint seed = (uint)(slice * 199 + 10000);
+
+            // Scrolling speed
             float speed = _Speed * (Random(seed) + 1) * 0.5;
 
+            // Convert into polar coordinates
             float phi = atan2(coord.x, coord.y) * UNITY_INV_TWO_PI + 0.5;
             phi = frac(phi + speed * _LocalTime);
 
-            float th = (row / _Density - _EffectorOffset) / _EffectorRange;
+            // Threshold for the current slice
+            float th = (slice / density - _EffectorOffset) / _EffectorRange;
 
+            // Thresholding
             if (frac(phi) < th) discard;
 
+            // Slice emission
             float em = saturate(1 - (frac(phi) - th) * 5);
             em *= 0.5 + Random(seed + 1);
 
+            // Surface shader output
             half4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
             bool backface = IN.vface < 0;
             o.Albedo = backface ? _Color2.rgb : c.rgb;
