@@ -20,9 +20,9 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.28676468, g: 0.28676468, b: 0.28676468, a: 1}
-  m_AmbientEquatorColor: {r: 0.30147058, g: 0.2948205, b: 0.29963607, a: 1}
-  m_AmbientGroundColor: {r: 0.15419549, g: 0.17911644, b: 0.22794116, a: 1}
+  m_AmbientSkyColor: {r: 0.07352942, g: 0.07352942, b: 0.07352942, a: 1}
+  m_AmbientEquatorColor: {r: 0.1544118, g: 0.14646412, b: 0.15221933, a: 1}
+  m_AmbientGroundColor: {r: 0.07239401, g: 0.080232054, b: 0.09558821, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
@@ -234,31 +234,31 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: b0f140b9118c1b14ebfbe570b3ce941e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.054414883
+      value: -0.009790097
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: b0f140b9118c1b14ebfbe570b3ce941e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.041565746
+      value: -0.01589671
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: b0f140b9118c1b14ebfbe570b3ce941e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.017765848
+      value: 0.06869303
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: b0f140b9118c1b14ebfbe570b3ce941e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9974947
+      value: 0.99746317
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: b0f140b9118c1b14ebfbe570b3ce941e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.017884493
+      value: 0.0125846565
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: b0f140b9118c1b14ebfbe570b3ce941e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.85334593
+      value: 0.8433069
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: b0f140b9118c1b14ebfbe570b3ce941e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.0605646
+      value: -0.020379275
       objectReference: {fileID: 0}
     - target: {fileID: 13700000, guid: b0f140b9118c1b14ebfbe570b3ce941e, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -380,11 +380,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b4c9620cc6bd1d41a15e9d655e56143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _range: 2
+  _range: 1
   _offset: 0
-  _density: 40
+  _density: 100
   _speed: 3
-  _color: {r: 1.3808824, g: 0.74996185, b: 0.5178309, a: 0}
+  _color: {r: 1.0762761, g: 1.2674428, b: 1.3808824, a: 0}
   _linkedRenderers:
   - {fileID: 32817551}
 --- !u!1 &1576732051
@@ -437,7 +437,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 20
-  field of view: 15
+  field of view: 10
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -502,6 +502,10 @@ PlayableDirector:
     value: {fileID: 538563819}
   - key: {fileID: 114781458888131454, guid: f1b582e9f18b75a47a29a143b3190097, type: 2}
     value: {fileID: 0}
+  - key: {fileID: 0}
+    value: {fileID: 2141880420}
+  - key: {fileID: 114304459494807754, guid: f1b582e9f18b75a47a29a143b3190097, type: 2}
+    value: {fileID: 2141880420}
   m_ExposedReferences:
     m_References:
     - 87257c991c07abb46ab3054805cd49ca: {fileID: 1041549710}
@@ -526,6 +530,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2141880421}
+  - component: {fileID: 2141880422}
   m_Layer: 0
   m_Name: Camera Pivot
   m_TagString: Untagged
@@ -546,4 +551,21 @@ Transform:
   - {fileID: 1576732055}
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 8, y: 20, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.000006043952, y: 359.9307, z: 0.009745822}
+--- !u!95 &2141880422
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2141880420}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
