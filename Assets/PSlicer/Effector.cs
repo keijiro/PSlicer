@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.Timeline;
 using System.Collections.Generic;
 
@@ -6,7 +7,7 @@ namespace PSlicer
 {
     [ExecuteInEditMode]
     [AddComponentMenu("Effects/PSlicer/Effector")]
-    class Effector : MonoBehaviour, ITimeControl
+    class Effector : MonoBehaviour, ITimeControl, IPropertyPreview
     {
         #region Editable attributes
 
@@ -54,6 +55,14 @@ namespace PSlicer
         public void SetTime(double time)
         {
             _controlTime = (float)time;
+        }
+
+        #endregion
+
+        #region IPropertyPreview implementation
+
+        public void GatherProperties(PlayableDirector director, IPropertyCollector driver)
+        {
         }
 
         #endregion
